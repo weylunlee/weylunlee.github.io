@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>LA County New Cases by Day</title>
 </head>
 <body>
-<h2><center>LA County New Cases by Day</center></h2>
-    <div id="chartDiv"
-        style="width: 90%; height: 90vh; margin: 0 auto;"></div>
+    <div id="chartDiv" style="width: 90%; height: 90vh; margin: 0 auto;"></div>
 </body>
 <script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
 <script>
@@ -26,10 +24,6 @@
 
         // Convert string to date, taking into account time zone diff
         function stringToDate(millis) {
-        	//let parts = text.toString().split("-");
-        	//let date = new Date(parts[2], parts[1] - 1, parts[0]);  // months are 0 based
-        	//return date;
-        	
         	let date = new Date(millis);
         	return new Date(date.getTime() + date.getTimezoneOffset() * 60000);
         }
@@ -76,8 +70,14 @@
         // Create the chart
         function createChart(series) {
             JSC.Chart('chartDiv', {
-                //title_label_text: 'LA County New Cases by Day', 
-                annotations: [ 
+            	  title: { 
+            		    position: 'center', 
+            		    label: { 
+            		      text: 'LA County New Cases by Day', 
+            		      style_fontSize: 25 
+            		    } 
+            		  }, 
+            	annotations: [ 
                         { 
                           label_text: 
                             'Raw data from LA Times', 
